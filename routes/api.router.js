@@ -20,7 +20,7 @@ router.delete('/productos/:id', usersValidation.isAuthorized, usersValidation.is
 router.post('/pedidos', usersValidation.isAuthorized, pedidosController.createPedidos)
 router.get('/pedidos', usersValidation.isAuthorized, usersValidation.isAdmin, pedidosController.getPedidos)
 router.get('/pedidos/:id', usersValidation.isAuthorized, usersValidation.isAdmin, pedidosController.getByID)
-router.put('/pedidos/:id', usersValidation.isAuthorized, usersValidation.isAdmin, pedidosController.UpdatePedidos)
+router.put('/pedidos/:id', usersValidation.isAuthorized, usersValidation.isAdmin, pedidosController.updatePedidos)
 router.delete('/pedidos/:id', usersValidation.isAuthorized, usersValidation.isAdmin, pedidosController.deletePedidos)
 
 

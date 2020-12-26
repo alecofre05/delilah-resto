@@ -27,8 +27,8 @@ db.pedidos = require('./pedidos.models')(sequelize, DataTypes);
 db.users = require('./users.models')(sequelize, DataTypes)
 
 //agrego las relaciones
-db.pedidos.belongsToMany(db.productos, {through:"pedidosProductos"})
-db.productos.belongsToMany(db.pedidos, {through:"pedidosProductos"})
+db.pedidos.belongsToMany(db.productos, {through: "pedidosProductos"})
+db.productos.belongsToMany(db.pedidos, {through: "pedidosProductos"})
 
 
 
