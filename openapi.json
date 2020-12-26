@@ -1,0 +1,685 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Delilah Resto Api",
+      "description": "Descripcion",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "email": "apiteam@swagger.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      },
+      "version": "1.0.0"
+    },
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/api"
+      }
+    ],
+    "tags": [
+      {
+        "name": "usuarios",
+        "description": "Usuarios del sistema",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://swagger.io"
+        }
+      }
+    ],
+    "paths": {
+      "/usuarios": {
+        "post": {
+          "tags": [
+            "usuarios"
+          ],
+          "summary": "This endpoint allows users to be created",
+          "requestBody": {
+            "description": "User object that needs to be added to the store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/usuarios"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/usuarios"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "401": {
+              "description": "Username or password invalid",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        },
+        "get": {
+          "tags": [
+            "usuarios"
+          ],
+          "summary": "This endpoint allows admin users to get all the users",
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        }
+      },
+      "/usuarios/login": {
+        "post": {
+          "tags": [
+            "usuarios"
+          ],
+          "summary": "This endpoint allows users to be authenticated",
+          "requestBody": {
+            "description": "User object that needs to be added to the store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/usuariosForLogin"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/usuariosForLogin"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "401": {
+              "description": "Username or password invalid",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        }
+      },
+      "/productos": {
+        "post": {
+          "tags": [
+            "productos"
+          ],
+          "summary": "This endpoint allows users to create products",
+          "requestBody": {
+            "description": "Product object that needs to be added to the store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProduct"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProduct"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        },
+        "get": {
+          "tags": [
+            "productos"
+          ],
+          "summary": "This endpoint allows users to get products",
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        }
+      },
+      "/productos/{id}": {
+        "get": {
+          "tags": [
+            "productos"
+          ],
+          "summary": "This endpoint allows admin users to get products by id",
+          "description": "Product object that needs to get from the store",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id of the product",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/getById"
+                  }
+                },
+                "application/xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/getById"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        },
+        "put": {
+          "tags": [
+            "productos"
+          ],
+          "summary": "This endpoint allows admin users to update products",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id of the product",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        },
+        "delete": {
+          "tags": [
+            "productos"
+          ],
+          "summary": "This endpoint allows admin users to delete products",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id of the product",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        }
+      },
+      "/pedidos": {
+        "post": {
+          "tags": [
+            "pedidos"
+          ],
+          "summary": "This endpoint allows users to create orders",
+          "requestBody": {
+            "description": "Product object that needs to be added to the store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPedidos"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPedidos"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        },
+        "get": {
+          "tags": [
+            "pedidos"
+          ],
+          "summary": "This endpoint allows admin users to get orders",
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        }
+      },
+      "/pedidos/all": {
+        "get": {
+          "tags": [
+            "pedidos"
+          ],
+          "summary": "This endpoint allows users to get their orders",
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        }
+      },
+      "/pedidos/{id}": {
+        "get": {
+          "tags": [
+            "pedidos"
+          ],
+          "summary": "This endpoint allows admin users to get orders by id",
+          "description": "Product object that needs to get from the store",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id of the product",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/pedidosGetById"
+                  }
+                },
+                "application/xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/pedidosGetById"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        },
+        "put": {
+          "tags": [
+            "pedidos"
+          ],
+          "summary": "This endpoint allows admin users to update orders",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id of the product",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        },
+        "delete": {
+          "tags": [
+            "pedidos"
+          ],
+          "summary": "This endpoint allows admin users to delete orders",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id of the product",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid input",
+              "content": {}
+            },
+            "500": {
+              "description": "Error",
+              "content": {}
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      },
+      "schemas": {
+        "usuarios": {
+          "type": "object",
+          "required": [
+            "nombre",
+            "apellido",
+            "usuario",
+            "correoElectronico",
+            "telefono",
+            "direccionDeEnvio",
+            "clave"
+          ],
+          "properties": {
+            "nombre": {
+              "type": "string",
+              "example": "Ricardo"
+            },
+            "apellido": {
+              "type": "string",
+              "example": "Ruben"
+            },
+            "usuario": {
+              "type": "string",
+              "example": "ricardo_ruben"
+            },
+            "correoElectronico": {
+              "type": "string",
+              "example": "mimail@xxxx.com"
+            },
+            "telefono": {
+              "type": "string",
+              "example": "5555 5555"
+            },
+            "direccionDeEnvio": {
+              "type": "string",
+              "example": "MI casa"
+            },
+            "clave": {
+              "type": "string",
+              "example": "4lt4Cl2v3"
+            },
+            "isAdmin": {
+              "type": "boolean"
+            }
+          },
+          "xml": {
+            "name": "usuarios"
+          }
+        },
+        "usuariosForLogin": {
+          "type": "object",
+          "required": [
+            "usuario",
+            "clave"
+          ],
+          "properties": {
+            "usuario": {
+              "type": "string",
+              "example": "ricardo_ruben"
+            },
+            "clave": {
+              "type": "string",
+              "example": "4lt4Cl2v3"
+            }
+          },
+          "xml": {
+            "name": "usuariosForLogin"
+          }
+        },
+        "createProduct": {
+          "type": "object",
+          "required": [
+            "nombre",
+            "precio",
+            "descripcion"
+          ],
+          "properties": {
+            "nombre": {
+              "type": "string",
+              "example": "Burga ATR"
+            },
+            "precio": {
+              "type": "number",
+              "example": "350"
+            },
+            "descripcion": {
+              "type": "string",
+              "example": "Hamburguesa con cheddar y panceta"
+            }
+          },
+          "xml": {
+            "name": "createProduct"
+          }
+        },
+        "getById": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "nombre": {
+              "type": "string",
+              "example": "Burga ATR"
+            },
+            "precio": {
+              "type": "number",
+              "example": "350"
+            },
+            "descripcion": {
+              "type": "string",
+              "example": "Hamburguesa con cheddar y panceta"
+            }
+          }
+        },
+        "createPedidos": {
+          "type": "object",
+          "required": [
+            "total",
+            "formaDePago",
+            "direccion"
+          ],
+          "properties": {
+            "total": {
+              "type": "number",
+              "example": "$500"
+            },
+            "formaDePago": {
+              "type": "string",
+              "example": "Efectivo"
+            },
+            "direccion": {
+              "type": "string",
+              "example": "MI casa"
+            }
+          }
+        },
+        "pedidosGetById": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "estado": {
+              "type": "string",
+              "example": "En Proceso"
+            },
+            "total": {
+              "type": "number",
+              "example": "500"
+            },
+            "formaDePago": {
+              "type": "string",
+              "example": "Efectivo"
+            },
+            "direccion": {
+              "type": "string",
+              "example": "Calle Buena Vida 123"
+            }
+          }
+        }
+      }
+    }
+  }
